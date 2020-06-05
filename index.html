@@ -3,10 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>Blockly</title>
-	<script src="blockly/blockly_compressed.js"></script>
-  	<script src="blockly/blocks_compressed.js"></script>
-  	<script src="blockly/javascript_compressed.js"></script>
-	<script src="blockly/msg/js/en.js"></script>
+	<script src="bl/blockly_compressed.js"></script>
+  	<script src="bl/blocks_compressed.js"></script>
+  	<script src="bl/javascript_compressed.js"></script>
+	<script src="bl/msg/js/en.js"></script>
 	<script src="src/custom_blocks.js"></script>
 	<style>
 #blocklyDiv{
@@ -37,7 +37,7 @@
 
 	<script>
 var workspace=Blockly.inject("blocklyDiv",
-	{media:"blockly/media/",
+	{media:"bl/media/",
 	toolbox:document.getElementById("toolbox")
 })
 function getCode(){
