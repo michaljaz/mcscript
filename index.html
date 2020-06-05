@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Blockly</title>
+	<script src="blockly/blockly_compressed.js"></script>
+  	<script src="blockly/blocks_compressed.js"></script>
+  	<script src="blockly/javascript_compressed.js"></script>
+	<script src="blockly/msg/js/en.js"></script>
+	<script src="src/custom_blocks.js"></script>
+	<style>
+#blocklyDiv{
+	width:1000px;
+	height:600px;
+	/*position:fixed;
+	top:0px;
+	left:0px;*/
+}
+
+
+	</style>
+</head>
+<body>
+	<!--Toolbox-->
+	<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+	<category name="Test" colour="#5ba55b">
+	<block type="message"/>
+	</category>
+	</xml>
+
+	<button onclick="getCode()">
+		getCode
+	</button>
+
+	<!--blockly div-->
+	<div id="blocklyDiv"></div>
+
+	<script>
+var workspace=Blockly.inject("blocklyDiv",
+	{media:"blockly/media/",
+	toolbox:document.getElementById("toolbox")
+})
+function getCode(){
+	Blockly.JavaScript.INFINITE_LOOP_TRAP=null;
+	var code=Blockly.JavaScript.workspaceToCode(workspace);
+	console.log(code)
+}
+
+
+	</script>
+</body>
+</html>
