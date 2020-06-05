@@ -1,16 +1,28 @@
-Blockly.Blocks['message'] = {
+Blockly.Blocks['command'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Say Hello world");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(160);
- this.setTooltip("xdxd");
+        .appendField("Komenda");
+    this.appendDummyInput()
+        .appendField("Nazwa komendy")
+        .appendField(new Blockly.FieldTextInput("command"), "command");
+    this.appendDummyInput()
+        .appendField("Opis komeny")
+        .appendField(new Blockly.FieldTextInput("description"), "description");
+    this.appendStatementInput("NAME")
+        .setCheck(null);
+    this.setColour(225);
+ this.setTooltip("");
  this.setHelpUrl("");
   }
 };
-Blockly.JavaScript['message'] = function(block) {
+Blockly.JavaScript['command'] = function(block) {
+  var text_command = block.getFieldValue('command');
+  var text_description = block.getFieldValue('description');
+  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...;\n';
+  var code = `
+command /${text_command}:
+  description: ${text_description}
+  trigger:${statements_name}`;
   return code;
 };
